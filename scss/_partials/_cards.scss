@@ -1,0 +1,16 @@
+.card-img-top {
+  width: 100%;
+  height: 10vw;
+  object-fit: cover;
+}
+
+.btn-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-50%);
+  }
+}
