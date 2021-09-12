@@ -74,7 +74,7 @@ const createCards = () => {
     cardButton.classList.add("btn", "btn-primary");
     cardButton.innerHTML = "Go Somewhere";
 
-    //fin de crear card-body y elementos
+    //fin de crear card-body y elementos otros
   }
 };
 createCards();
