@@ -13,15 +13,23 @@
       crossorigin="anonymous"
     />
 
+    <!-- Fontawesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <!-- Personalized Stylesheet -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+
     <title>Lima Bakery</title>
   </head>
   <body>
     <header>
       <section id="navbar">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container-fluid">
+          <div class="container">
             <a class="navbar-brand" href="#">Navbar</a>
             <button
               class="navbar-toggler"
@@ -59,7 +67,12 @@
     </section>
     <section id="productos" class="productos">
       <h2>Listado de productos</h2>
+      <h3>Desayunos:</h3>
+      <div id="desayunos"></div>
+      <h3>Almuerzos:</h3>
+      <div id="almuerzos"></div>
     </section>
+    <p class="prueba">0</p>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -67,5 +80,5 @@
     crossorigin="anonymous"
   ></script>
 
-  <script src="/elementos.js"></script>
+  <script src="/cardElements.js"></script>
 </html>
