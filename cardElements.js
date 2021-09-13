@@ -162,11 +162,21 @@ createAllCards("desayunos", dataDesayunos);
 createAllCards("almuerzos", dataAlmuerzos);
 
 //End of Card Functions
+
+//Funcionalidad de botones mas y menos 
 const btnMas = document.getElementById("btn-mas");
 
 btnMas.onclick = (event) => {
   event.preventDefault();
   const cantidadActual = document.querySelector(".cant-items").innerHTML;
   let cantidadNueva = parseInt(cantidadActual) + 1;
+  document.querySelector(".cant-items").innerHTML = cantidadNueva;
+};
+
+const btnMenos = document.getElementById("btn-menos");
+btnMenos.onclick = (evento) => {
+  evento.preventDefault();
+  const cantidadActual = document.querySelector(".cant-items").innerHTML;
+  let cantidadNueva = parseInt(cantidadActual) -= 1;
   document.querySelector(".cant-items").innerHTML = cantidadNueva;
 };

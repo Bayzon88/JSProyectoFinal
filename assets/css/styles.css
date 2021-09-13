@@ -11143,15 +11143,14 @@ textarea.form-control-lg {
   top: 90%;
   left: 20%;
   transform: translate(-27%, -50%);
+  font-size: 1.2rem;
 }
 .precioProd p {
   height: auto;
-  font-size: 1.6rem;
   margin: 0;
 }
 .precioProd i {
   padding: 0 5%;
-  font-size: 1.6rem;
 }
 
 .btn-card-custom {
