@@ -1,3 +1,6 @@
 @use 'custom';
+@use 'style';
+@use './_partials/hero';
+@use './_partials/navbar';
 @use '../scss/_partials/cards';
 @import "./_partials/resets";

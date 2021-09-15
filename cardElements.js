@@ -81,11 +81,59 @@ const dataAlmuerzos = [
     source: "./assets/img/huevos_toscanos.jpeg",
   },
 ];
+const dataCenas = [
+  {
+    nombre: "Cagliari",
+    id: 1,
+    precio: 25,
+    descripcion:
+      "Pasta salteada con berenjena, un toque de aceite de oliva y ajos.",
+    source: "./assets/img/cagliari.jpeg",
+  },
+  {
+    nombre: "Club Sandwich",
+    id: 2,
+    precio: 32.0,
+    descripcion: "El clasico de siempre",
+    source: "./assets/img/club_sandwich.jpeg",
+  },
+  {
+    nombre: "Avocado Toast",
+    id: 3,
+    precio: 10.5,
+    descripcion:
+      "Pan campesino de granos tostado servido con guacamole, huevo y champiñones encurtidos.",
+    source: "./assets/img/avocado_toast.jpeg",
+  },
+  {
+    nombre: "Panqueques",
+    id: 4,
+    precio: 10.5,
+    descripcion:
+      "Hechos en casa, acompañados con dos frutas a escoger servidos con miel de maple",
+    source: "./assets/img/panqueques.jpeg",
+  },
+  {
+    nombre: "huancaina",
+    id: 5,
+    precio: 15.0,
+    descripcion:
+      "Huevos revueltos con tomate concasse, queso parmesano rallado y aceite de oliva. ",
+    source: "./assets/img/huevos_toscanos.jpeg",
+  },
+];
 
 //Start of Card Functions
 //Variables para funciones del Card
 const cardSize = "15rem";
-const cardColSize = ["col-xl-3", "col-lg-4", "col-md-4", "col-sm-6"];
+const cardColSize = [
+  "col-xl-3",
+  "col-lg-3",
+  "col-md-6",
+  "col-sm-6",
+  "col-custom",
+];
+const cardContClass = ["row", "container", "container-custom"];
 
 //elementos del DOM
 
@@ -97,7 +145,9 @@ y data de procedencia renderiza todos los cards*/
 const createAllCards = (producto, data) => {
   const productos = document.getElementById(producto);
   const cardContainer = productos.appendChild(document.createElement("div"));
-  cardContainer.classList.add("row", "container-fluid");
+  cardContClass.forEach((container) => {
+    cardContainer.classList.add(container);
+  });
 
   //crear cards de bootstrap
   for (let loop = 0; loop < data.length; loop++) {
@@ -138,6 +188,7 @@ const createAllCards = (producto, data) => {
     const menos = seccionPrecios.appendChild(document.createElement("a"));
     menos.setAttribute("href", "");
     menos.setAttribute("id", "btn-menos");
+    menos.classList.add("btn-menos");
     menos
       .appendChild(document.createElement("i"))
       .classList.add("far", "fa-minus-circle"); //simbolo + del cardfooter
@@ -148,6 +199,7 @@ const createAllCards = (producto, data) => {
     const mas = seccionPrecios.appendChild(document.createElement("a"));
     mas.setAttribute("href", "");
     mas.setAttribute("id", "btn-mas");
+    mas.classList.add("btn-mas");
     mas
       .appendChild(document.createElement("i"))
       .classList.add("far", "fa-plus-circle"); //simbolo - del cardfooter
@@ -163,20 +215,26 @@ createAllCards("almuerzos", dataAlmuerzos);
 
 //End of Card Functions
 
-//Funcionalidad de botones mas y menos 
-const btnMas = document.getElementById("btn-mas");
+//Funcionalidad de botones mas y menos
+let btnMas = document.getElementsByClassName("btn-mas");
+let btnMenos = document.getElementsByClassName("btn-menos");
 
-btnMas.onclick = (event) => {
-  event.preventDefault();
-  const cantidadActual = document.querySelector(".cant-items").innerHTML;
-  let cantidadNueva = parseInt(cantidadActual) + 1;
-  document.querySelector(".cant-items").innerHTML = cantidadNueva;
-};
+Array.from(btnMas).forEach((eventoMas) => {
+  eventoMas.onclick = (clickMas) => {
+    clickMas.preventDefault();
+    let contador = document.querySelector(".cant-items").innerHTML;
+    let contadorNuevo = parseInt(contador) + 1;
+    document.querySelector(".cant-items").innerHTML = contadorNuevo;
+  };
+});
 
-const btnMenos = document.getElementById("btn-menos");
-btnMenos.onclick = (evento) => {
-  evento.preventDefault();
-  const cantidadActual = document.querySelector(".cant-items").innerHTML;
-  let cantidadNueva = parseInt(cantidadActual) -= 1;
-  document.querySelector(".cant-items").innerHTML = cantidadNueva;
-};
+Array.from(btnMenos).forEach((eventoMenos) => {
+  eventoMenos.onclick = (clickMenos) => {
+    clickMenos.preventDefault();
+    let contadorMenos = document.querySelector(".cant-items").innerHTML;
+    if (contadorMenos > 0) {
+      let contadorNuevoMenos = parseInt(contadorMenos) - 1;
+      document.querySelector(".cant-items").innerHTML = contadorNuevoMenos;
+    }
+  };
+});

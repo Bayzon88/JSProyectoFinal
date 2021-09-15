@@ -1,0 +1,25 @@
+$paddingProductos: 4%;
+$paddingHead: $paddingProductos;
+$verticalPadding: 3%;
+
+.productos {
+  .container-custom,
+  .col-custom {
+    padding: 0; //alinear titulo con inicio de los cards
+  }
+  .container-custom {
+    display: flex;
+    justify-content: start;
+  }
+
+  &__head {
+    font-family: "Josefin Slab", serif;
+    font-weight: 600;
+    padding: 0 $paddingHead + 1%;
+  }
+  &__agrupacion {
+    display: flex;
+    padding: 0 $paddingProductos;
+    justify-content: space-around;
+  }
+}

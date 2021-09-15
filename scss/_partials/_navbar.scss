@@ -1,0 +1,10 @@
+$fontSize: 1.5rem;
+//Modificaciones a estilos del navBar
+.navbar-container-custom {
+  width: 100vw;
+}
+
+.navbar-brand,
+.navbar-container-custom {
+  font-size: $fontSize;
+}
