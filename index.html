@@ -33,8 +33,8 @@
     <title>Lima Bakery</title>
   </head>
   <body>
-    <header>
-      <section id="navbar">
+    <header class="sticky-top">
+      <section id="navbar ">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container navbar-container-custom">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -74,15 +74,58 @@
 
     <section id="heroSection" class="heroSection">
       <div class="hero">
-        <img src="./assets/img/hero_section.jpeg" alt="" />
+        <div class="container">
+          <img src="./assets/img/hero_section.jpeg" alt="" />
+        </div>
       </div>
     </section>
-    <section id="productos" class="productos">
-      <h2>Listado de productos</h2>
-      <h3 class="productos__head">Desayunos:</h3>
-      <div id="desayunos" class="productos__agrupacion"></div>
-      <h3 class="productos__head">Almuerzos:</h3>
-      <div id="almuerzos" class="productos__agrupacion"></div>
+    <section id="productos" class="productos container">
+      <div class="container col-custom">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card bg-dark text-white">
+              <img src="..." class="card-img" alt="..." />
+              <div class="card-img-overlay">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">Last updated 3 mins ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card bg-dark text-white">
+              <img src="..." class="card-img" alt="..." />
+              <div class="card-img-overlay">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">Last updated 3 mins ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card bg-dark text-white">
+              <img src="..." class="card-img" alt="..." />
+              <div class="card-img-overlay">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">Last updated 3 mins ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </body>
   <script

@@ -3,13 +3,13 @@ $paddingHead: $paddingProductos;
 $verticalPadding: 3%;
 
 .productos {
-  .container-custom,
-  .col-custom {
-    padding: 0; //alinear titulo con inicio de los cards
-  }
   .container-custom {
     display: flex;
     justify-content: start;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   &__head {

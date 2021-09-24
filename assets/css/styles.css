@@ -11115,13 +11115,13 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.productos .container-custom,
-.productos .col-custom {
-  padding: 0;
-}
 .productos .container-custom {
   display: flex;
   justify-content: start;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 .productos__head {
   font-family: "Josefin Slab", serif;
@@ -11206,6 +11206,11 @@ textarea.form-control-lg {
   width: 2rem;
   border: solid 1px #d8d3d2;
   text-align: center;
+}
+
+.col-custom {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
