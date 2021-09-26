@@ -1,5 +1,15 @@
 //Data para web
-const dataDesayunos = [
+const dataTipoComida = {
+  desayuno: {
+    nombre: "Omelette de Jamon",
+    id: 1,
+    precio: 10,
+    descripcion: "Delicioso Omelette relleno de jamon y queso",
+    source: "./assets/img/omelette_jamon.jpeg",
+  },
+};
+
+const desayuno = [
   {
     nombre: "Omelette de Jamon",
     id: 1,
@@ -40,7 +50,7 @@ const dataDesayunos = [
   },
 ];
 
-const dataAlmuerzos = [
+const almuerzo = [
   {
     nombre: "Cagliari",
     id: 1,
@@ -81,7 +91,7 @@ const dataAlmuerzos = [
     source: "./assets/img/huevos_toscanos.jpeg",
   },
 ];
-const dataCenas = [
+const cena = [
   {
     nombre: "Cagliari",
     id: 1,
@@ -123,8 +133,10 @@ const dataCenas = [
   },
 ];
 
-//Start of Card Functions
+//Start of Card creation function
 const PRODUCTOS = document.querySelector("#productos");
+
+//addItems: (String, Object) Recibe string con nombre de la seccion y data del objeto
 function addItems(tipoComida, data) {
   const dataProducto = data;
   PRODUCTOS.innerHTML += `
@@ -160,7 +172,24 @@ function addItems(tipoComida, data) {
   });
 }
 
-//End of Card Functions
+/***********************************************************************************/
+//End of Card creation Function
+
+/*Add listeners para los cards de productos
+al hacer click se crearan los cards de la seccion seleccionada (desayuno,almuerzo, cena)*/
+const CARDPRODUCTOS = document.querySelectorAll(".card-product-custom");
+CARDPRODUCTOS.forEach((elemento) => {
+  elemento.addEventListener("click", (evento) => {
+    console.log(evento.target);
+    let tipoComida = evento.target.getAttribute("id");
+    // addItems(tipoComida, dataTipoComida[tipoComida]);
+    console.log(dataTipoComida[tipoComida]);
+  });
+});
+//Start of Card creation Function
+/***********************************************************************************/
+
+console.log(dataTipoComida["desayuno"]);
 
 //Funcionalidad de botones mas y menos
 let btnMas = document.getElementsByClassName("btn-mas");

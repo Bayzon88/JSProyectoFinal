@@ -1,0 +1,18 @@
+.seccion-productos {
+  padding-top: 2%;
+  #desayuno {
+    background-image: url(/assets/img/avocado_toast.jpeg);
+  }
+  #almuerzo {
+    background-image: url(/assets/img/cagliari.jpeg);
+  }
+
+  #desayuno,
+  #almuerzo,
+  #cena {
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    font-family: "Quicksand", sans-serif;
+  }
+}

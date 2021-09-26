@@ -1,6 +1,11 @@
-@use 'custom';
-@use 'style';
-@use './_partials/hero';
-@use './_partials/navbar';
-@use '../scss/_partials/cards';
+//sections
+@use "./sections/productos";
+@use "./sections/hero";
+
+@use "custom";
+@use "style";
+
+@use "./_partials/navbar";
+@use "./_partials/body";
+@use "../scss/_partials/cards";
 @import "./_partials/resets";

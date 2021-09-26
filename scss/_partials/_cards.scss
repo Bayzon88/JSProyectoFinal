@@ -62,3 +62,9 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+.card-product-custom {
+  &:hover {
+    transform: translate(0, -1%);
+  }
+}

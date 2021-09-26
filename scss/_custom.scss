@@ -1,9 +1,15 @@
 //Start: "Card custom variables"
 $card-height: 16rem;
 $card-bg: white;
-
 //End: "Card custom variables"
 
-$primary: rgba(0, 0, 0, 0.775);
+//Start: Navbar Custom variables
+$navbar-dark-color: #ffa500;
+$navbar-dark-brand-color: #a52a2a;
+$bg-dark: blue;
+//End: Navbar Custom variables
 
+//Start Color
+$primary: #4e3107de;
+//End Color
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

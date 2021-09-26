@@ -1,0 +1,10 @@
+@use "../../node_modules/bootstrap/scss/mixins/gradients" as *;
+
+$start-color: #c5894d83;
+$end-color: #c9925b7c;
+$start-percent: 10%;
+$end-percent: 100%;
+body {
+  // @include make-container(80%);
+  @include gradient-x($start-color, $end-color, $start-percent, $end-percent);
+}
