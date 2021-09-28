@@ -3,11 +3,17 @@
 .seccion-productos {
   padding-top: 2%;
 }
-.seccion-productos #desayuno {
-  background-image: url(/assets/img/avocado_toast.jpeg);
-}
 .seccion-productos #almuerzo {
   background-image: url(/assets/img/cagliari.jpeg);
+}
+.seccion-productos .desayunoBackground {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/img/avocado_toast.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
 }
 .seccion-productos #desayuno,
 .seccion-productos #almuerzo,
