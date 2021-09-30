@@ -77,6 +77,23 @@ const dataTipoComida = {
   },
 };
 
+//*********************  START: FUNCION DE CREACION TIPOS DE COMIDA  *********************/
+/**
+ *? Add listeners para los cards de productos al hacer click se crearan
+ *? los cards de la seccion seleccionada (desayuno,almuerzo, cena)
+ */
+
+const CARDPRODUCTOS = document.querySelectorAll(".card-product-custom");
+CARDPRODUCTOS.forEach((elemento) => {
+  elemento.addEventListener("click", (evento) => {
+    let tipoComida = evento.target.getAttribute("id"); //? Consigue el atributo de cada producto
+
+    addItems(tipoComida, dataTipoComida[tipoComida]);
+  });
+});
+
+//**********************  END: FUNCION DE CREACION TIPOS DE COMIDA  *********************/
+
 //*********************  START: FUNCION DE CREACION DE CARDS CON DATOS  *********************/
 //TODO AL PRESIONAR NUEVO TIPO DE COMIDA, DEBE ELIMINARSE LOS CARDS ACTUALES
 
@@ -119,24 +136,9 @@ function addItems(tipoComida, data) {
     }
   }
   getButtons();
+  addBtnListener();
 }
 //**********************  END: FUNCION DE CREACION DE CARDS CON DATOS  *********************/
-
-//*********************  START: FUNCION DE CREACION TIPOS DE COMIDA  *********************/
-/**
- *? Add listeners para los cards de productos al hacer click se crearan
- *? los cards de la seccion seleccionada (desayuno,almuerzo, cena)
- */
-
-const CARDPRODUCTOS = document.querySelectorAll(".card-product-custom");
-CARDPRODUCTOS.forEach((elemento) => {
-  elemento.addEventListener("click", (evento) => {
-    let tipoComida = evento.target.getAttribute("id"); //? Consigue el atributo de cada producto
-    addItems(tipoComida, dataTipoComida[tipoComida]);
-  });
-});
-
-//**********************  END: FUNCION DE CREACION TIPOS DE COMIDA  *********************/
 
 //*********************  START: FUNCIONALIDAD DE BOTON MAS Y MENOS  *********************/
 function getButtons() {
@@ -149,13 +151,15 @@ function getButtons() {
 
       let boton = btn.target.parentElement.parentElement;
       let contador = boton.querySelector("#cant-items").innerHTML;
+
       if (contador >= 0) {
-        //? Incrementar si mayor igual a 0
+        //? prettier ignore Incrementar si mayor igual a 0
         let contadorNuevo = parseInt(contador) + 1;
         boton.querySelector("#cant-items").innerHTML = contadorNuevo;
       }
     };
   });
+
   btnMenos.forEach((elemento) => {
     elemento.onclick = (btn) => {
       btn.preventDefault();
@@ -172,6 +176,28 @@ function getButtons() {
 //**********************  END: FUNCIONALIDAD DE BOTON MAS Y MENOS  *********************/
 
 //*********************  START: BOTON DE AGREGAR A CARRITO COMPRAS  *********************/
+function addBtnListener() {
+  let btn = document.querySelectorAll(".btn-card-custom");
+  btn.forEach((elemento) => {
+    elemento.onclick = (btn) => {
+      let cantidadProductos =
+        btn.target.previousElementSibling.querySelector(
+          "#cant-items"
+        ).innerHTML;
+      addToCount(cantidadProductos);
+    };
+  });
+}
+
+function addToCount(cantidadProductos) {
+  let cartCount = document.querySelector("#cart-count");
+  let newCartCount =
+    parseInt(cartCount.innerHTML) + parseInt(cantidadProductos);
+  cartCount.innerHTML = newCartCount;
+}
+
+let shoppingCart = [];
+
 //TODO CREAR BOTON QUE AGREGUE EL ITEM AL CARRITO DE COMPRAS
 //**********************  END: BOTON DE AGREGAR A CARRITO COMPRAS  *********************/
 

@@ -11,3 +11,31 @@ $fontSize: 1.5rem;
 .navbar-container-custom {
   font-size: $fontSize;
 }
+
+//NavBar Cart
+
+$counterSize: 1.1rem;
+#cart-navBar {
+  display: flex;
+  align-items: center;
+
+  #cart-icon {
+    display: flex;
+    padding-left: 0.4rem;
+    align-items: center;
+    justify-content: center;
+    .cart-count-circle {
+      position: relative;
+      transform: translate(-50%, -50%);
+      top: 1.2rem;
+      right: 5%;
+      text-align: center;
+      font-size: $counterSize;
+
+      width: $counterSize;
+      height: $counterSize;
+      border-radius: 50%;
+      background-color: #a52a2a;
+    }
+  }
+}
