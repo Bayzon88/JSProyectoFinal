@@ -7,6 +7,7 @@ const dataTipoComida = {
       precio: 10,
       descripcion: "Delicioso Omelette relleno de jamon y queso",
       source: "./assets/img/omelette_jamon.jpeg",
+      cantidad: 0,
     },
 
     croissantDeJamon: {
@@ -15,6 +16,7 @@ const dataTipoComida = {
       precio: 12,
       descripcion: "Acompañado con jamón inglés.",
       source: "./assets/img/croissant_jamon.jpeg",
+      cantidad: 0,
     },
     avocadoToast: {
       nombre: "Avocado Toast",
@@ -23,6 +25,7 @@ const dataTipoComida = {
       descripcion:
         "Pan campesino de granos tostado servido con guacamole, huevo y champiñones encurtidos.",
       source: "./assets/img/avocado_toast.jpeg",
+      cantidad: 0,
     },
     panqueques: {
       nombre: "Panqueques",
@@ -31,6 +34,7 @@ const dataTipoComida = {
       descripcion:
         "Hechos en casa, acompañados con dos frutas a escoger servidos con miel de maple",
       source: "./assets/img/panqueques.jpeg",
+      cantidad: 0,
     },
     huevosToscanos: {
       nombre: "Huevos Toscanos",
@@ -39,6 +43,7 @@ const dataTipoComida = {
       descripcion:
         "Huevos revueltos con tomate concasse, queso parmesano rallado y aceite de oliva. ",
       source: "./assets/img/huevos_toscanos.jpeg",
+      cantidad: 0,
     },
   },
   almuerzo: {
@@ -49,6 +54,7 @@ const dataTipoComida = {
       descripcion:
         "Pasta salteada con berenjena, un toque de aceite de oliva y ajos.",
       source: "./assets/img/cagliari.jpeg",
+      cantidad: 0,
     },
     clubSandwich: {
       nombre: "Club Sandwich",
@@ -56,6 +62,7 @@ const dataTipoComida = {
       precio: 32.0,
       descripcion: "El clasico de siempre",
       source: "./assets/img/club_sandwich.jpeg",
+      cantidad: 0,
     },
   },
   cena: {
@@ -66,6 +73,7 @@ const dataTipoComida = {
       descripcion:
         "Pasta salteada con berenjena, un toque de aceite de oliva y ajos.",
       source: "./assets/img/cagliari.jpeg",
+      cantidad: 0,
     },
     clubSandwich: {
       nombre: "Club Sandwich",
@@ -73,6 +81,7 @@ const dataTipoComida = {
       precio: 32.0,
       descripcion: "El clasico de siempre",
       source: "./assets/img/club_sandwich.jpeg",
+      cantidad: 0,
     },
   },
 };
@@ -112,10 +121,10 @@ function addItems(tipoComida, data) {
     for (elemento in data) {
       ROWCONTAINER.innerHTML += `
       <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-custom">
-      <div class="card" style="width: 15rem">
+      <div id="${tipoComida}"class="card" style="width: 15rem">
       <img class="card-img-top" src='${data[elemento].source}' />
-      <div class="card-body" id="card-body">
-      <h5 class="card-title">${data[elemento].nombre}</h5>
+      <div class="card-body" id="${elemento}">
+      <h5 id="${data[elemento].id}"class="card-title">${data[elemento].nombre}</h5>
         <p class="card-text">${data[elemento].descripcion}</p>
         <div class="precioProd">
         <p>${data[elemento].precio}</p>
@@ -176,15 +185,21 @@ function getButtons() {
 //**********************  END: FUNCIONALIDAD DE BOTON MAS Y MENOS  *********************/
 
 //*********************  START: BOTON DE AGREGAR A CARRITO COMPRAS  *********************/
+let shoppingCart = [];
 function addBtnListener() {
   let btn = document.querySelectorAll(".btn-card-custom");
   btn.forEach((elemento) => {
     elemento.onclick = (btn) => {
+      let tipoComida =
+        btn.target.parentElement.parentElement.getAttribute("id");
+      let comida = btn.target.parentElement.getAttribute("id");
+
       let cantidadProductos =
         btn.target.previousElementSibling.querySelector(
           "#cant-items"
         ).innerHTML;
       addToCount(cantidadProductos);
+      addItemToCart(tipoComida, comida, cantidadProductos);
     };
   });
 }
@@ -196,7 +211,38 @@ function addToCount(cantidadProductos) {
   cartCount.innerHTML = newCartCount;
 }
 
-let shoppingCart = [];
+function addItemToCart(tipoComida, comida, cantidadProductos) {
+  if (
+    !shoppingCart.some(
+      (elementoComida) => elementoComida == dataTipoComida[tipoComida][comida]
+    )
+  ) {
+    let data = dataTipoComida[tipoComida][comida];
+    data.cantidad = cantidadProductos;
+    shoppingCart.push(dataTipoComida[tipoComida][comida]);
+    let shoppingCartItem = document.getElementById("shopping-cart");
+    console.log(shoppingCartItem);
+
+    $(".offcanvas-header").append(`
+    <div class="shopping-cart__item ">
+  <h5>Nombre producto</h5>
+  <div class="d-flex">
+    <img src="" alt="imagen del producto" width="1rem" height="1rem" />
+    <h3>Cantidad producto</h3>
+    <button type="button">Quitar</button>
+  </div>
+</div>
+    `);
+
+    console.log("crear item");
+    console.log(shoppingCart);
+  } else {
+    console.log("agregar item");
+  }
+
+  // console.log(tipoComida);
+  // console.log(comida);
+}
 
 //TODO CREAR BOTON QUE AGREGUE EL ITEM AL CARRITO DE COMPRAS
 //**********************  END: BOTON DE AGREGAR A CARRITO COMPRAS  *********************/

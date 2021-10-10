@@ -4,12 +4,16 @@ $card-bg: white;
 //End: "Card custom variables"
 
 //Start: Navbar Custom variables
-$navbar-dark-color: #ffa500;
-$navbar-dark-brand-color: #a52a2a;
+$navbar-dark-color: #462f22;
+$navbar-dark-hover-color: #462f22a6;
+
+$navbar-dark-brand-color: #462f22;
+$navbar-dark-brand-hover-color: #462f22a6;
+
 $bg-dark: blue;
 //End: Navbar Custom variables
 
 //Start Color
-$primary: #4e3107de;
+$primary: #462f22;
 //End Color
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

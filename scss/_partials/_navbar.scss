@@ -1,20 +1,30 @@
 @use "../../node_modules/bootstrap/scss/mixins/gradients" as *;
 @use "../../node_modules/bootstrap/scss/mixins/container" as *;
 
+//? Google Font
+@import url("https://fonts.googleapis.com/css2?family=Festive&display=swap");
+
 $fontSize: 1.5rem;
+$brandFontSize: $fontSize * 2;
 //Modificaciones a estilos del navBar
 .navbar-container-custom {
   width: 100vw;
 }
 
-.navbar-brand,
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: $brandFontSize;
+  font-family: "Festive", cursive;
+}
+
 .navbar-container-custom {
   font-size: $fontSize;
 }
 
 //NavBar Cart
 
-$counterSize: 1.1rem;
+$counterSize: 1rem;
 #cart-navBar {
   display: flex;
   align-items: center;
@@ -25,17 +35,22 @@ $counterSize: 1.1rem;
     align-items: center;
     justify-content: center;
     .cart-count-circle {
+      display: flex;
       position: relative;
       transform: translate(-50%, -50%);
-      top: 1.2rem;
+      top: 1.5rem;
       right: 5%;
-      text-align: center;
+      justify-content: center;
+      align-items: center;
       font-size: $counterSize;
 
-      width: $counterSize;
-      height: $counterSize;
+      width: $counterSize + 0.3rem;
+      height: $counterSize + 0.3rem;
       border-radius: 50%;
-      background-color: #a52a2a;
+      background-color: #c9925b;
     }
   }
+}
+.logo {
+  height: 5rem;
 }
