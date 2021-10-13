@@ -25,3 +25,11 @@
     font-family: "Quicksand", sans-serif;
   }
 }
+
+.card-custom {
+  background-color: transparent !important;
+  border: none !important;
+  h2 {
+    background-color: transparent;
+  }
+}

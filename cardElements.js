@@ -93,6 +93,7 @@ const dataTipoComida = {
  */
 
 const CARDPRODUCTOS = document.querySelectorAll(".card-product-custom");
+
 CARDPRODUCTOS.forEach((elemento) => {
   elemento.addEventListener("click", (evento) => {
     let tipoComida = evento.target.getAttribute("id"); //? Consigue el atributo de cada producto
@@ -121,25 +122,25 @@ function addItems(tipoComida, data) {
     for (elemento in data) {
       ROWCONTAINER.innerHTML += `
       <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-custom">
-      <div id="${tipoComida}"class="card" style="width: 15rem">
-      <img class="card-img-top" src='${data[elemento].source}' />
-      <div class="card-body" id="${elemento}">
-      <h5 id="${data[elemento].id}"class="card-title">${data[elemento].nombre}</h5>
-        <p class="card-text">${data[elemento].descripcion}</p>
-        <div class="precioProd">
-        <p>${data[elemento].precio}</p>
-        <a href="" id="btn-menos" class="btn-menos">
-        <i class="far fa-minus-circle"></i>
-        </a>
-        <p class="cant-items" id="cant-items">0</p>
-        <a href="" id="btn-mas" class="btn-mas">
-        <i class="far fa-plus-circle"></i>
-        </a>
+        <div id="${tipoComida}"class="card" style="width: 15rem">
+          <img class="card-img-top" src='${data[elemento].source}' />
+          <div class="card-body" id="${elemento}">
+          <h5 id="${data[elemento].id}"class="card-title">${data[elemento].nombre}</h5>
+          <p class="card-text">${data[elemento].descripcion}</p>
+          <div class="precioProd">
+          <p>${data[elemento].precio}</p>
+          <a href="" id="btn-menos" class="btn-menos">
+          <i class="far fa-minus-circle"></i>
+          </a>
+          <p class="cant-items" id="cant-items">0</p>
+          <a href="" id="btn-mas" class="btn-mas">
+          <i class="far fa-plus-circle"></i>
+          </a>
+          </div>
+          <a class="btn btn-primary btn-card-custom" >Add</a>
+          </div>
         </div>
-        <a class="btn btn-primary btn-card-custom">Add</a>
-        </div>
-        </div>
-        </div>
+      </div>
         
         `;
     }
@@ -224,14 +225,22 @@ function addItemToCart(tipoComida, comida, cantidadProductos) {
     console.log(shoppingCartItem);
 
     $(".offcanvas-header").append(`
-    <div class="shopping-cart__item ">
-  <h5>Nombre producto</h5>
-  <div class="d-flex">
-    <img src="" alt="imagen del producto" width="1rem" height="1rem" />
-    <h3>Cantidad producto</h3>
-    <button type="button">Quitar</button>
-  </div>
-</div>
+    <div class="shopping-cart ">
+    <div class="d-flex shopping-cart__item ">
+        <img src="${
+          data.source
+        }" alt="imagen del producto" class="shopping-cart__item--image" />
+        <h5>${data.nombre}</h5>
+        <div class="d-flex">
+          <h3>${data.cantidad}</h3>
+          <h3>x</h3>
+          <h3>${data.precio}</h3>
+          <h3>:</h3>
+          <h3>${data.precio * data.cantidad}</h3>
+        </div>
+        <button type="button">X</button>
+      </div>
+    </div>
     `);
 
     console.log("crear item");

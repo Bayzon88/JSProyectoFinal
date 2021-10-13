@@ -27,6 +27,14 @@
   font-family: "Quicksand", sans-serif;
 }
 
+.card-custom {
+  background-color: transparent !important;
+  border: none !important;
+}
+.card-custom h2 {
+  background-color: transparent;
+}
+
 .hero {
   width: 100%;
   height: 40%;
@@ -35,6 +43,16 @@
   width: 100%;
   height: 40%;
   object-fit: fill;
+}
+
+.shopping-cart__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shopping-cart__item--image {
+  width: 4rem;
+  height: auto;
 }
 
 /*!
@@ -11281,6 +11299,11 @@ body {
 
 .card-product-custom:hover {
   transform: translate(0, -1%);
+}
+.card-product-custom a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=styles.css.map */
