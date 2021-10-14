@@ -128,7 +128,7 @@ function addItems(tipoComida, data) {
           <h5 id="${data[elemento].id}"class="card-title">${data[elemento].nombre}</h5>
           <p class="card-text">${data[elemento].descripcion}</p>
           <div class="precioProd">
-          <p>${data[elemento].precio}</p>
+          <p>S/.${data[elemento].precio}</p>
           <a href="" id="btn-menos" class="btn-menos">
           <i class="far fa-minus-circle"></i>
           </a>
@@ -187,6 +187,8 @@ function getButtons() {
 
 //*********************  START: BOTON DE AGREGAR A CARRITO COMPRAS  *********************/
 let shoppingCart = [];
+
+//Agrega listeners a los botones "Add"
 function addBtnListener() {
   let btn = document.querySelectorAll(".btn-card-custom");
   btn.forEach((elemento) => {
@@ -199,12 +201,12 @@ function addBtnListener() {
         btn.target.previousElementSibling.querySelector(
           "#cant-items"
         ).innerHTML;
-      addToCount(cantidadProductos);
-      addItemToCart(tipoComida, comida, cantidadProductos);
+      addToCount(cantidadProductos); //Agrega cantidad al logo del shopping cart
+      addItemToCart(tipoComida, comida, cantidadProductos); //pasa informacion del objeto que se agregara
     };
   });
 }
-
+//Agrega catnidades al logo del shopping cart
 function addToCount(cantidadProductos) {
   let cartCount = document.querySelector("#cart-count");
   let newCartCount =
@@ -212,50 +214,67 @@ function addToCount(cantidadProductos) {
   cartCount.innerHTML = newCartCount;
 }
 
+//Agrega items al listado del shopping cart y pasa informacion necesaria
 function addItemToCart(tipoComida, comida, cantidadProductos) {
+  let data = dataTipoComida[tipoComida][comida];
   if (
     !shoppingCart.some(
       (elementoComida) => elementoComida == dataTipoComida[tipoComida][comida]
     )
   ) {
-    let data = dataTipoComida[tipoComida][comida];
     data.cantidad = cantidadProductos;
-    shoppingCart.push(dataTipoComida[tipoComida][comida]);
+    shoppingCart.push(dataTipoComida[tipoComida][comida]); //Agrega item al array del carrito de compras
     let shoppingCartItem = document.getElementById("shopping-cart");
-    console.log(shoppingCartItem);
 
+    //Append html, con informacion del item, al carrito de compras
     $(".offcanvas-header").append(`
-    <div class="shopping-cart ">
-    <div class="d-flex shopping-cart__item ">
-        <img src="${
-          data.source
-        }" alt="imagen del producto" class="shopping-cart__item--image" />
-        <h5>${data.nombre}</h5>
-        <div class="d-flex">
-          <h3>${data.cantidad}</h3>
-          <h3>x</h3>
-          <h3>${data.precio}</h3>
-          <h3>:</h3>
-          <h3>${data.precio * data.cantidad}</h3>
-        </div>
-        <button type="button">X</button>
-      </div>
-    </div>
-    `);
-
-    console.log("crear item");
-    console.log(shoppingCart);
+          <div class="shopping-cart">
+            <div class="d-flex shopping-cart__item">
+              <div class="shopping-cart__item--container">
+                <img
+                  src="${data.source}"
+                  alt="imagen del producto"
+                  class="shopping-cart__item--image"/>
+                  <h5 class="name">${data.nombre}</h5>
+                <div class="information">
+                  <h3 id="cant-items-cart" class="detail">Cant: ${
+                    data.cantidad
+                  }</h3>
+                  <h3 id="precio-items-total" class="detail">S/.${
+                    data.precio * data.cantidad
+                  }</h3>
+                </div>
+              </div>
+              <button id="btn-remove-item" type="button" class="btn btn-remove-item" onclick="removeItemsFromCart()">X</button>
+            </div>
+          </div>
+      `);
   } else {
-    console.log("agregar item");
-  }
+    let cantAdicional = document.getElementById("cant-items-cart").textContent;
+    console.log(document.querySelectorAll("#cant-items-cart"));
+    cantidadProductos =
+      parseInt(cantidadProductos) +
+      parseInt(cantAdicional.replace("Cant: ", ""));
+    document.getElementById(
+      "cant-items-cart"
+    ).innerHTML = `Cant: ${cantidadProductos}`;
 
-  // console.log(tipoComida);
-  // console.log(comida);
+    document.getElementById("precio-items-total").innerHTML = `S/. ${
+      cantidadProductos * data.precio
+    }`;
+  }
 }
 
-//TODO CREAR BOTON QUE AGREGUE EL ITEM AL CARRITO DE COMPRAS
 //**********************  END: BOTON DE AGREGAR A CARRITO COMPRAS  *********************/
 
-//TODO BOTON EN NAVBAR(CARRITO), AL HACER CLICK RENDERIZAR LOS ITEMS DEL CARRITO DE COMPRAS (JSON.LOCALSTORAGE)
-//TODO MODIFICAR CANTIDADES DENTRO DEL CARRITO DE COMPRAS
+//******************  START: BOTON DE BORRAR ITEM DE CARRITO COMPRAS  ******************/
 //TODO ELIMINAR ITEMS DEL CARRITO DE COMPRAS
+
+function removeItemsFromCart() {
+  alert("hola");
+}
+
+//******************  END: BOTON DE BORRAR ITEM DE CARRITO COMPRAS  ********************/
+//TODO MODIFICAR CANTIDADES DENTRO DEL CARRITO DE COMPRAS
+
+//TODO AGREGAR UN TOTAL AL CARRITO DE COMPRAS
