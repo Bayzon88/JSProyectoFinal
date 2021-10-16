@@ -249,8 +249,7 @@ function addItemToCart(tipoComida, comida, cantidadProductos) {
     data.cantidad = cantidadProductos;
     shoppingCart.push(dataTipoComida[tipoComida][comida]); //Agrega item al array del carrito de compras
     let shoppingCartItem = document.getElementById("shopping-cart");
-    //TODO if para verificar si el producto ya esta en carrito, si esta, agregar la cantidad solamente
-    //TODO puedo usar un foreach para revisar que no haya nada con el mismo nombre en el shopping cart
+
     //Append html, con informacion del item, al carrito de compras
     $(".offcanvas-header").append(`
           <div class="shopping-cart">
@@ -321,4 +320,3 @@ function removeItemsFromCart() {
 }
 
 //******************  END: BOTON DE BORRAR ITEM DE CARRITO COMPRAS  ********************/
-//TODO MODIFICAR CANTIDADES DENTRO DEL CARRITO DE COMPRAS
