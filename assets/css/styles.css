@@ -8,11 +8,16 @@
 .seccion-productos #almuerzo {
   background-image: url(/assets/img/cagliari.jpeg);
 }
+.seccion-productos #desayuno {
+  background-image: url(/assets/img/avocado_toast.jpeg);
+}
+.seccion-productos #cena {
+  background-image: url(/assets/img/empanada_aji.jpeg);
+}
 .seccion-productos .productoBackground {
   display: flex;
   width: 100%;
   height: 100%;
-  background-image: url(/assets/img/avocado_toast.jpeg);
   background-repeat: no-repeat;
   background-size: contain;
   justify-content: center;
@@ -46,8 +51,14 @@
   object-fit: fill;
 }
 
+.shoppingCart {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+}
+
 .shopping-cart__item {
   font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
   font-weight: 100;
   display: flex;
   justify-content: space-between;
@@ -74,6 +85,12 @@
   width: 40%;
   justify-content: space-evenly;
 }
+.shopping-cart__item--container .information #cant-items-cart {
+  width: 60%;
+}
+.shopping-cart__item--container .information #precio-items-total {
+  width: 40%;
+}
 
 .detail,
 .name {
@@ -86,6 +103,28 @@
   padding: 0 !important;
   width: 1.2rem !important;
   height: 1.2rem;
+}
+
+.total-shopping-cart {
+  margin: 0 0 0 1rem;
+  padding: 0 2rem 0 0;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px black solid;
+}
+.total-shopping-cart h3 {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+.total-shopping-cart .total-to-pay {
+  display: flex;
+  justify-content: center;
+  width: 16%;
+}
+.total-shopping-cart .total-to-pay h3 {
+  text-align: center;
 }
 
 /*!
@@ -118,7 +157,7 @@
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
   --bs-primary: #462f22;
-  --bs-secondary: #6c757d;
+  --bs-secondary: #c5894d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
@@ -126,7 +165,7 @@
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
   --bs-primary-rgb: 70, 47, 34;
-  --bs-secondary-rgb: 108, 117, 125;
+  --bs-secondary-rgb: 197, 137, 77;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -2112,15 +2151,15 @@ progress {
 }
 
 .table-secondary {
-  --bs-table-bg: #e2e3e5;
-  --bs-table-striped-bg: #d7d8da;
+  --bs-table-bg: #f3e7db;
+  --bs-table-striped-bg: #e7dbd0;
   --bs-table-striped-color: #000;
-  --bs-table-active-bg: #cbccce;
+  --bs-table-active-bg: #dbd0c5;
   --bs-table-active-color: #000;
-  --bs-table-hover-bg: #d1d2d4;
+  --bs-table-hover-bg: #e1d6cb;
   --bs-table-hover-color: #000;
   color: #000;
-  border-color: #cbccce;
+  border-color: #dbd0c5;
 }
 
 .table-success {
@@ -3041,33 +3080,33 @@ textarea.form-control-lg {
 }
 
 .btn-secondary {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #000;
+  background-color: #c5894d;
+  border-color: #c5894d;
 }
 .btn-secondary:hover {
-  color: #fff;
-  background-color: #5c636a;
-  border-color: #565e64;
+  color: #000;
+  background-color: #ce9b68;
+  border-color: #cb955f;
 }
 .btn-check:focus + .btn-secondary, .btn-secondary:focus {
-  color: #fff;
-  background-color: #5c636a;
-  border-color: #565e64;
-  box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+  color: #000;
+  background-color: #ce9b68;
+  border-color: #cb955f;
+  box-shadow: 0 0 0 0.25rem rgba(167, 116, 65, 0.5);
 }
 .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
-  color: #fff;
-  background-color: #565e64;
-  border-color: #51585e;
+  color: #000;
+  background-color: #d1a171;
+  border-color: #cb955f;
 }
 .btn-check:checked + .btn-secondary:focus, .btn-check:active + .btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show > .btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(167, 116, 65, 0.5);
 }
 .btn-secondary:disabled, .btn-secondary.disabled {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #000;
+  background-color: #c5894d;
+  border-color: #c5894d;
 }
 
 .btn-success {
@@ -3276,27 +3315,27 @@ textarea.form-control-lg {
 }
 
 .btn-outline-secondary {
-  color: #6c757d;
-  border-color: #6c757d;
+  color: #c5894d;
+  border-color: #c5894d;
 }
 .btn-outline-secondary:hover {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #000;
+  background-color: #c5894d;
+  border-color: #c5894d;
 }
 .btn-check:focus + .btn-outline-secondary, .btn-outline-secondary:focus {
-  box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(197, 137, 77, 0.5);
 }
 .btn-check:checked + .btn-outline-secondary, .btn-check:active + .btn-outline-secondary, .btn-outline-secondary:active, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #000;
+  background-color: #c5894d;
+  border-color: #c5894d;
 }
 .btn-check:checked + .btn-outline-secondary:focus, .btn-check:active + .btn-outline-secondary:focus, .btn-outline-secondary:active:focus, .btn-outline-secondary.active:focus, .btn-outline-secondary.dropdown-toggle.show:focus {
-  box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(197, 137, 77, 0.5);
 }
 .btn-outline-secondary:disabled, .btn-outline-secondary.disabled {
-  color: #6c757d;
+  color: #c5894d;
   background-color: transparent;
 }
 
@@ -4924,12 +4963,12 @@ textarea.form-control-lg {
 }
 
 .alert-secondary {
-  color: #41464b;
-  background-color: #e2e3e5;
-  border-color: #d3d6d8;
+  color: #76522e;
+  background-color: #f3e7db;
+  border-color: #eedcca;
 }
 .alert-secondary .alert-link {
-  color: #34383c;
+  color: #5e4225;
 }
 
 .alert-success {
@@ -5268,17 +5307,17 @@ textarea.form-control-lg {
 }
 
 .list-group-item-secondary {
-  color: #41464b;
-  background-color: #e2e3e5;
+  color: #76522e;
+  background-color: #f3e7db;
 }
 .list-group-item-secondary.list-group-item-action:hover, .list-group-item-secondary.list-group-item-action:focus {
-  color: #41464b;
-  background-color: #cbccce;
+  color: #76522e;
+  background-color: #dbd0c5;
 }
 .list-group-item-secondary.list-group-item-action.active {
   color: #fff;
-  background-color: #41464b;
-  border-color: #41464b;
+  background-color: #76522e;
+  border-color: #76522e;
 }
 
 .list-group-item-success {
@@ -6372,10 +6411,10 @@ textarea.form-control-lg {
 }
 
 .link-secondary {
-  color: #6c757d;
+  color: #c5894d;
 }
 .link-secondary:hover, .link-secondary:focus {
-  color: #565e64;
+  color: #d1a171;
 }
 
 .link-success {
@@ -6815,7 +6854,7 @@ textarea.form-control-lg {
 }
 
 .border-secondary {
-  border-color: #6c757d !important;
+  border-color: #c5894d !important;
 }
 
 .border-success {
@@ -11312,6 +11351,7 @@ body {
 }
 
 .btn-card-custom {
+  color: white !important;
   display: flex;
   position: absolute;
   top: 90%;
@@ -11331,12 +11371,25 @@ body {
 }
 
 .card-product-custom:hover {
-  transform: translate(0, -1%);
+  animation-name: hoverCard;
+  animation-duration: 0.9s;
 }
 .card-product-custom a {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+@keyframes hoverCard {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -1%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

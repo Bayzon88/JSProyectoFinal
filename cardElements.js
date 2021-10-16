@@ -64,23 +64,50 @@ const dataTipoComida = {
       source: "./assets/img/club_sandwich.jpeg",
       cantidad: 0,
     },
-  },
-  cena: {
-    cagliari: {
-      nombre: "Cagliari",
-      id: 1,
-      precio: 25,
+    frontera: {
+      nombre: "Ensalada Frontera",
+      id: 3,
+      precio: 25.0,
       descripcion:
-        "Pasta salteada con berenjena, un toque de aceite de oliva y ajos.",
-      source: "./assets/img/cagliari.jpeg",
+        "Lechugas orgánicas , pechuga de pollo deshilachada, palta y huevo duro",
+      source: "./assets/img/ensalada_frontera.jpeg",
       cantidad: 0,
     },
-    clubSandwich: {
-      nombre: "Club Sandwich",
+    milanesa: {
+      nombre: "Milanesa Napolitana",
+      id: 4,
+      precio: 20.0,
+      descripcion:
+        "Media milanesa napolitana con acompañamiento y bebida a elección.",
+      source: "./assets/img/milanesa_napolitana.jpeg",
+      cantidad: 0,
+    },
+  },
+  cena: {
+    empanada: {
+      nombre: "Empanada Aji de Gallina",
+      id: 1,
+      precio: 10,
+      descripcion:
+        "Rellena con criollísimo ají de gallina en masa hojaldre y huevo duro.",
+      source: "./assets/img/empanada_aji.jpeg",
+      cantidad: 0,
+    },
+    pastel_acelga: {
+      nombre: "Pastel de acelga",
       id: 2,
-      precio: 32.0,
-      descripcion: "El clasico de siempre",
-      source: "./assets/img/club_sandwich.jpeg",
+      precio: 12.0,
+      descripcion: "Tradicional pastel de acelgas con masa hojaldre.",
+      source: "./assets/img/pastel_acelga.jpeg",
+      cantidad: 0,
+    },
+    milhojas_fresa: {
+      nombre: "Mil hojas de fresa",
+      id: 2,
+      precio: 15.0,
+      descripcion:
+        "Capas de masa hojaldre intercaladas con capas de fresas naturales y manjar blanco.",
+      source: "./assets/img/milhojas_fresa.jpeg",
       cantidad: 0,
     },
   },
@@ -137,7 +164,7 @@ function addItems(tipoComida, data) {
           <i class="far fa-plus-circle"></i>
           </a>
           </div>
-          <a class="btn btn-primary btn-card-custom" >Add</a>
+          <a class="btn btn-primary btn-card-custom btn-outline-secondary" >Add</a>
           </div>
         </div>
       </div>
@@ -217,15 +244,13 @@ function addToCount(cantidadProductos) {
 //Agrega items al listado del shopping cart y pasa informacion necesaria
 function addItemToCart(tipoComida, comida, cantidadProductos) {
   let data = dataTipoComida[tipoComida][comida];
-  if (
-    !shoppingCart.some(
-      (elementoComida) => elementoComida == dataTipoComida[tipoComida][comida]
-    )
-  ) {
+
+  {
     data.cantidad = cantidadProductos;
     shoppingCart.push(dataTipoComida[tipoComida][comida]); //Agrega item al array del carrito de compras
     let shoppingCartItem = document.getElementById("shopping-cart");
-
+    //TODO if para verificar si el producto ya esta en carrito, si esta, agregar la cantidad solamente
+    //TODO puedo usar un foreach para revisar que no haya nada con el mismo nombre en el shopping cart
     //Append html, con informacion del item, al carrito de compras
     $(".offcanvas-header").append(`
           <div class="shopping-cart">
@@ -249,32 +274,51 @@ function addItemToCart(tipoComida, comida, cantidadProductos) {
             </div>
           </div>
       `);
-  } else {
-    let cantAdicional = document.getElementById("cant-items-cart").textContent;
-    console.log(document.querySelectorAll("#cant-items-cart"));
-    cantidadProductos =
-      parseInt(cantidadProductos) +
-      parseInt(cantAdicional.replace("Cant: ", ""));
-    document.getElementById(
-      "cant-items-cart"
-    ).innerHTML = `Cant: ${cantidadProductos}`;
-
-    document.getElementById("precio-items-total").innerHTML = `S/. ${
-      cantidadProductos * data.precio
-    }`;
+    totalToPay(data.precio, data.cantidad);
   }
+}
+function totalToPay(precio, cantidad) {
+  let totalActual = document.getElementById("total-to-pay").innerHTML;
+
+  let nuevoTotal = parseInt(totalActual) + precio * cantidad;
+
+  document.querySelector("#total-to-pay").innerHTML = nuevoTotal;
 }
 
 //**********************  END: BOTON DE AGREGAR A CARRITO COMPRAS  *********************/
 
 //******************  START: BOTON DE BORRAR ITEM DE CARRITO COMPRAS  ******************/
-//TODO ELIMINAR ITEMS DEL CARRITO DE COMPRAS
 
 function removeItemsFromCart() {
-  alert("hola");
+  console.log(document.getElementsByClassName("btn-remove-item"));
+  let itemToRemove = document.querySelectorAll(".btn-remove-item");
+  itemToRemove.forEach((elemento) => {
+    elemento.onclick = (btn) => {
+      let cantToReduce =
+        btn.target.previousElementSibling.lastElementChild.firstElementChild.innerHTML.replace(
+          "Cant: ",
+          ""
+        );
+      //? Restar items del contador del Carrito de Compras
+      addToCount(parseInt(cantToReduce) * -1);
+
+      //? Restar del total a pagar luego de eliminar un item
+      let precio =
+        btn.target.previousElementSibling.lastElementChild.lastElementChild.innerHTML.replace(
+          "S/.",
+          ""
+        );
+      console.log(precio);
+      totalToPay(parseInt(precio) * -1, 1);
+      btn.target.parentElement.parentElement.remove();
+    };
+  });
+  // itemToRemove.forEach(
+  //   (itemToRemove.onclick = (btn) => {
+  //     btn.target.parentElement.parentElement.remove();
+  //   })
+  // );
 }
 
 //******************  END: BOTON DE BORRAR ITEM DE CARRITO COMPRAS  ********************/
 //TODO MODIFICAR CANTIDADES DENTRO DEL CARRITO DE COMPRAS
-
-//TODO AGREGAR UN TOTAL AL CARRITO DE COMPRAS

@@ -45,6 +45,7 @@
 }
 
 .btn-card-custom {
+  color: white !important;
   display: flex;
   position: absolute;
   top: 90%;
@@ -65,11 +66,24 @@
 
 .card-product-custom {
   &:hover {
-    transform: translate(0, -1%);
+    animation-name: hoverCard;
+    animation-duration: 0.9s;
   }
   a {
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: 700;
+  }
+}
+
+@keyframes hoverCard {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -1%);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }

@@ -4,12 +4,19 @@
   #almuerzo {
     background-image: url(/assets/img/cagliari.jpeg);
   }
+  #desayuno {
+    background-image: url(/assets/img/avocado_toast.jpeg);
+  }
+
+  #cena {
+    background-image: url(/assets/img/empanada_aji.jpeg);
+  }
 
   .productoBackground {
     display: flex;
     width: 100%;
     height: 100%;
-    background-image: url(/assets/img/avocado_toast.jpeg);
+
     background-repeat: no-repeat;
     background-size: contain;
     justify-content: center;

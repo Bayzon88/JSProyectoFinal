@@ -1,0 +1,95 @@
+dataTipoComida  {
+    desayuno: {
+      omeletteDeJamon: {
+        nombre: "Omelette de Jamon",
+        id: 1,
+        precio: 10,
+        descripcion: "Delicioso Omelette relleno de jamon y queso",
+        source: "./assets/img/omelette_jamon.jpeg",
+        cantidad: 0,
+      },
+  
+      croissantDeJamon: {
+        nombre: "Croissant de Jamon",
+        id: 2,
+        precio: 12,
+        descripcion: "Acompañado con jamón inglés.",
+        source: "./assets/img/croissant_jamon.jpeg",
+        cantidad: 0,
+      },
+      avocadoToast: {
+        nombre: "Avocado Toast",
+        id: 3,
+        precio: 10,
+        descripcion:
+          "Pan campesino de granos tostado servido con guacamole, huevo y champiñones encurtidos.",
+        source: "./assets/img/avocado_toast.jpeg",
+        cantidad: 0,
+      },
+      panqueques: {
+        nombre: "Panqueques",
+        id: 4,
+        precio: 10,
+        descripcion:
+          "Hechos en casa, acompañados con dos frutas a escoger servidos con miel de maple",
+        source: "./assets/img/panqueques.jpeg",
+        cantidad: 0,
+      },
+      huevosToscanos: {
+        nombre: "Huevos Toscanos",
+        id: 5,
+        precio: 12,
+        descripcion:
+          "Huevos revueltos con tomate concasse, queso parmesano rallado y aceite de oliva. ",
+        source: "./assets/img/huevos_toscanos.jpeg",
+        cantidad: 0,
+      },
+    },
+    almuerzo: {
+      cagliari: {
+        nombre: "Cagliari",
+        id: 1,
+        precio: 25,
+        descripcion:
+          "Pasta salteada con berenjena, un toque de aceite de oliva y ajos.",
+        source: "./assets/img/cagliari.jpeg",
+        cantidad: 0,
+      },
+      clubSandwich: {
+        nombre: "Club Sandwich",
+        id: 2,
+        precio: 32.0,
+        descripcion: "El clasico de siempre",
+        source: "./assets/img/club_sandwich.jpeg",
+        cantidad: 0,
+      },
+      frontera: {
+        nombre: "Ensalada Frontera",
+        id: 3,
+        precio: 25.0,
+        descripcion:
+          "Lechugas orgánicas , pechuga de pollo deshilachada, palta y huevo duro",
+        source: "./assets/img/ensalada_frontera.jpeg",
+        cantidad: 0,
+      },
+    },
+    cena: {
+      cagliari: {
+        nombre: "Cagliari",
+        id: 1,
+        precio: 25,
+        descripcion:
+          "Pasta salteada con berenjena, un toque de aceite de oliva y ajos.",
+        source: "./assets/img/cagliari.jpeg",
+        cantidad: 0,
+      },
+      clubSandwich: {
+        nombre: "Club Sandwich",
+        id: 2,
+        precio: 32.0,
+        descripcion: "El clasico de siempre",
+        source: "./assets/img/club_sandwich.jpeg",
+        cantidad: 0,
+      },
+    },
+  };
