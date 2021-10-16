@@ -5,14 +5,14 @@
 .seccion-productos {
   padding-top: 2%;
 }
-.seccion-productos #almuerzo {
-  background-image: url(/assets/img/cagliari.jpeg);
+.seccion-productos .almuerzo {
+  background-image: url(/JSProyectoFinal/assets/img/avocado_toast.jpeg);
 }
-.seccion-productos #desayuno {
-  background-image: url(/assets/img/avocado_toast.jpeg);
+.seccion-productos .desayuno {
+  background-image: url(/JSProyectoFinal/assets/img/cagliari.jpeg);
 }
-.seccion-productos #cena {
-  background-image: url(/assets/img/empanada_aji.jpeg);
+.seccion-productos .cena {
+  background-image: url(/JSProyectoFinal/assets/img/empanada_aji.jpeg);
 }
 .seccion-productos .productoBackground {
   display: flex;

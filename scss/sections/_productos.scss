@@ -1,14 +1,14 @@
 .seccion-productos {
   padding-top: 2%;
 
-  #almuerzo {
-    background-image: url(https://github.com/Bayzon88/JSProyectoFinal/blob/final/assets/img/avocado_toast.jpeg);
+  .almuerzo {
+    background-image: url(/JSProyectoFinal/assets/img/avocado_toast.jpeg);
   }
-  #desayuno {
-    background-image: url(https://raw.githubusercontent.com/Bayzon88/JSProyectoFinal/final/assets/img/cagliari.jpeg);
+  .desayuno {
+    background-image: url(/JSProyectoFinal/assets/img/cagliari.jpeg);
   }
 
-  #cena {
+  .cena {
     background-image: url(/JSProyectoFinal/assets/img/empanada_aji.jpeg);
   }
 
